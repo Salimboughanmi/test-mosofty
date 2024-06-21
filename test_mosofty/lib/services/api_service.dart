@@ -115,17 +115,6 @@ class ApiService {
     }
   }
 
-  /*  static Future<List<Project>> AssignedProjectsToEmployee() async {
-    final response = await http
-        .get(Uri.parse('http://63.250.52.98:9305/projectsdone/UsersProject'));
-    if (response.statusCode == 200) {
-      final List<dynamic> jsonData = jsonDecode(response.body);
-      return jsonData.map((json) => Project.fromJson(json)).toList();
-    } else {
-      throw Exception('Failed to load assigned projects');
-    }
-  } */
-
   static Future<void> AssignedProjectsToEmployee(
       int projectId, List<Map<String, dynamic>> employees) async {
     final response = await http.post(

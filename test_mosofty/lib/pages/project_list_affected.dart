@@ -1,14 +1,16 @@
+// project_list_page.dart
+
 import 'package:flutter/material.dart';
-import 'package:test_mosofty/services/api_service.dart';
 import 'package:test_mosofty/models/project.dart';
+import 'package:test_mosofty/services/api_service.dart';
 
 class ProjectListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Liste des projets')),
+      appBar: AppBar(title: Text('Liste des projets affectés aux employés')),
       body: FutureBuilder<List<Project>>(
-        future: ApiService.fetchProjets(),
+        future: ApiService.getProjects(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
@@ -25,6 +27,9 @@ class ProjectListPage extends StatelessWidget {
                 return ListTile(
                   title: Text(project.nom),
                   subtitle: Text(project.description),
+                  onTap: () {
+                    // Ajoutez ici le code pour gérer le clic sur un projet si nécessaire
+                  },
                 );
               },
             );

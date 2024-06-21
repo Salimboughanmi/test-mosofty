@@ -23,13 +23,12 @@ class _AssignProjectPageState extends State<AssignProjectPage> {
   Future<void> _fetchData() async {
     try {
       final employeeList = await ApiService.getEmployees();
-      final projectList = await ApiService.getProjects();
+      final projectList = await ApiService.fetchProjets();
       setState(() {
-        employees = employeeList.map((e) => Employee.fromJson(e)).toList();
-        projects = projectList.map((p) => Project.fromJson(p)).toList();
+        employees = employeeList;
+        projects = projectList;
       });
     } catch (error) {
-      // Handle errors as necessary
       print('Error fetching data: $error');
     }
   }

@@ -27,9 +27,7 @@ class ProjectListPage extends StatelessWidget {
                 return ListTile(
                   title: Text(project.nom),
                   subtitle: Text(project.description),
-                  onTap: () {
-                    // Ajoutez ici le code pour gérer le clic sur un projet si nécessaire
-                  },
+                  onTap: () {},
                 );
               },
             );
